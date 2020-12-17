@@ -165,6 +165,3 @@ def scrape_all():
     }
     return data
 
-if __name__ == "__main__":
-    # if running as script, print scraped data
-    print(scrape_all())
