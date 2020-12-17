@@ -4,10 +4,15 @@ import pandas as pd
 import datetime as dt
 
 #set the executable path and initialize the chrome browser in splinter
-executable_path = {'executable_path': "C:/Users/thenry/Desktop/chromedriver"}
-browser = Browser('chrome', **executable_path)
+def init_browser():
+    # @NOTE: Replace the path with your actual path to the chromedriver
+    executable_path = {"executable_path": "C:/Users/thenry/Desktop/chromedriver"}
+    return Browser("chrome", **executable_path, headless=False)
+
 
 def mars_news(browser):
+    browser = init_browser()
+
     #visit the mars nasa news site
     url = 'https://mars.nasa.gov/news/'
     browser.visit(url)
@@ -27,6 +32,8 @@ def mars_news(browser):
     return news_title, news_paragraph
 
 def featured_image(browser):
+
+    browser = init_browser()
 
     #visit url
     url = 'https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars'
